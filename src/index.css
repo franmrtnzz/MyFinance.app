@@ -1,0 +1,357 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Variables CSS para temas */
+:root {
+  --bg-primary: #ffffff;
+  --bg-secondary: #f9fafb;
+  --bg-card: #ffffff;
+  --text-primary: #111827;
+  --text-secondary: #6b7280;
+  --text-muted: #9ca3af;
+  --border-color: #e5e7eb;
+  --accent-color: #3b82f6;
+  --accent-hover: #2563eb;
+}
+
+/* Tema Oscuro */
+.theme-dark {
+  --bg-primary: #0f172a;
+  --bg-secondary: #1e293b;
+  --bg-card: #334155;
+  --text-primary: #f8fafc;
+  --text-secondary: #cbd5e1;
+  --text-muted: #94a3b8;
+  --border-color: #64748b;
+  --accent-color: #38bdf8;
+  --accent-hover: #0ea5e9;
+}
+
+/* Tema Claro */
+.theme-light {
+  --bg-primary: #ffffff;
+  --bg-secondary: #f9fafb;
+  --bg-card: #ffffff;
+  --text-primary: #111827;
+  --text-secondary: #6b7280;
+  --text-muted: #9ca3af;
+  --border-color: #e5e7eb;
+  --accent-color: #3b82f6;
+  --accent-hover: #2563eb;
+}
+
+@layer base {
+  html {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background-color: var(--bg-secondary);
+  }
+  
+  body {
+    background-color: var(--bg-secondary);
+    color: var(--text-primary);
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  /* Estilos para texto */
+  h1, h2, h3, h4, h5, h6 {
+    color: var(--text-primary);
+  }
+
+  p, span, div {
+    color: var(--text-primary);
+  }
+
+  /* Estilos para enlaces */
+  a {
+    color: var(--accent-color);
+  }
+
+  a:hover {
+    color: var(--accent-hover);
+  }
+
+  /* Mejoras específicas para tema oscuro */
+  .theme-dark {
+    background-color: var(--bg-secondary) !important;
+    color: var(--text-primary) !important;
+  }
+
+  .theme-dark .card {
+    background-color: var(--bg-card) !important;
+    border-color: var(--border-color) !important;
+    color: var(--text-primary) !important;
+  }
+
+  .theme-dark input,
+  .theme-dark select,
+  .theme-dark textarea {
+    background-color: var(--bg-secondary) !important;
+    color: var(--text-primary) !important;
+    border-color: var(--border-color) !important;
+  }
+
+  .theme-dark input::placeholder,
+  .theme-dark textarea::placeholder {
+    color: var(--text-muted) !important;
+  }
+
+  .theme-dark label {
+    color: var(--text-primary) !important;
+  }
+
+  .theme-dark h1,
+  .theme-dark h2,
+  .theme-dark h3,
+  .theme-dark h4,
+  .theme-dark h5,
+  .theme-dark h6 {
+    color: var(--text-primary) !important;
+  }
+
+  .theme-dark p,
+  .theme-dark span,
+  .theme-dark div {
+    color: var(--text-primary) !important;
+  }
+
+  /* Forzar estilos para elementos específicos */
+  .theme-dark .text-gray-900 {
+    color: var(--text-primary) !important;
+  }
+
+  .theme-dark .text-gray-700 {
+    color: var(--text-secondary) !important;
+  }
+
+  .theme-dark .text-gray-600 {
+    color: var(--text-muted) !important;
+  }
+
+  .theme-dark .text-gray-500 {
+    color: var(--text-muted) !important;
+  }
+
+  .theme-dark .bg-white {
+    background-color: var(--bg-card) !important;
+  }
+
+  .theme-dark .bg-gray-50 {
+    background-color: var(--bg-secondary) !important;
+  }
+
+  .theme-dark .border-gray-200 {
+    border-color: var(--border-color) !important;
+  }
+
+  .theme-dark .border-gray-300 {
+    border-color: var(--border-color) !important;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply font-medium py-2 px-4 rounded-lg transition-colors duration-200 border;
+    background-color: var(--accent-color);
+    color: white;
+    border-color: var(--accent-color);
+  }
+
+  .btn-primary:hover {
+    background-color: var(--accent-hover);
+    border-color: var(--accent-hover);
+  }
+
+  .btn-secondary {
+    @apply font-medium py-2 px-4 rounded-lg transition-colors duration-200 border;
+    background-color: var(--bg-card);
+    color: var(--text-primary);
+    border-color: var(--border-color);
+  }
+
+  .btn-secondary:hover {
+    background-color: var(--bg-secondary);
+    color: var(--text-primary);
+  }
+
+  .card {
+    @apply rounded-xl shadow-sm p-6;
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+  }
+
+  .input-field {
+    @apply w-full px-3 py-2 rounded-lg transition-colors duration-200 border focus:outline-none focus:ring-2 focus:ring-opacity-50;
+    background-color: var(--bg-card);
+    color: var(--text-primary);
+    border-color: var(--border-color);
+  }
+
+  .input-field:focus {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+  }
+
+  .input-field::placeholder {
+    color: var(--text-muted);
+  }
+
+  /* Estilos específicos para botones de tema */
+  .theme-button {
+    transition: all 0.2s ease;
+  }
+
+  .theme-button:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .theme-dark .theme-button {
+    background-color: var(--bg-card) !important;
+    color: var(--text-primary) !important;
+    border-color: var(--border-color) !important;
+  }
+
+  .theme-dark .theme-button:hover {
+    background-color: var(--bg-secondary) !important;
+    color: var(--text-primary) !important;
+  }
+
+  /* Sobrescribir clases específicas de Tailwind en tema oscuro */
+  .theme-dark .bg-blue-100 {
+    background-color: rgba(56, 189, 248, 0.2) !important;
+  }
+
+  .theme-dark .border-blue-300 {
+    border-color: var(--accent-color) !important;
+  }
+
+  .theme-dark .text-blue-700 {
+    color: var(--accent-color) !important;
+  }
+
+  .theme-dark .bg-white {
+    background-color: var(--bg-card) !important;
+  }
+
+  .theme-dark .border-gray-300 {
+    border-color: var(--border-color) !important;
+  }
+
+  .theme-dark .text-gray-700 {
+    color: var(--text-primary) !important;
+  }
+
+  /* Forzar colores en tarjetas del dashboard */
+  .theme-dark .bg-green-50,
+  .theme-dark .bg-red-50,
+  .theme-dark .bg-blue-50,
+  .theme-dark .bg-yellow-50,
+  .theme-dark .bg-purple-50,
+  .theme-dark .bg-pink-50 {
+    background-color: var(--bg-card) !important;
+  }
+
+  /* Forzar colores de texto en tarjetas */
+  .theme-dark .text-green-600,
+  .theme-dark .text-red-600,
+  .theme-dark .text-blue-600,
+  .theme-dark .text-yellow-600,
+  .theme-dark .text-purple-600,
+  .theme-dark .text-pink-600 {
+    color: var(--text-primary) !important;
+  }
+
+  /* Forzar colores de texto grises */
+  .theme-dark .text-gray-800,
+  .theme-dark .text-gray-900 {
+    color: var(--text-primary) !important;
+  }
+
+  /* Forzar fondos claros */
+  .theme-dark .bg-gray-100,
+  .theme-dark .bg-gray-50 {
+    background-color: var(--bg-secondary) !important;
+  }
+
+  /* Forzar bordes claros */
+  .theme-dark .border-gray-200 {
+    border-color: var(--border-color) !important;
+  }
+
+  /* Forzar colores de iconos */
+  .theme-dark .text-green-500,
+  .theme-dark .text-red-500,
+  .theme-dark .text-blue-500 {
+    color: var(--text-secondary) !important;
+  }
+
+  /* Forzar TODOS los elementos del dashboard */
+  .theme-dark [class*="bg-"] {
+    background-color: var(--bg-card) !important;
+  }
+
+  .theme-dark [class*="text-"] {
+    color: var(--text-primary) !important;
+  }
+
+  .theme-dark [class*="border-"] {
+    border-color: var(--border-color) !important;
+  }
+
+  /* Excepciones para elementos que deben mantener su color */
+  .theme-dark .btn-primary,
+  .theme-dark .btn-secondary {
+    background-color: var(--accent-color) !important;
+    color: white !important;
+  }
+
+  .theme-dark .btn-primary:hover {
+    background-color: var(--accent-hover) !important;
+  }
+
+  .theme-dark .btn-secondary {
+    background-color: var(--bg-card) !important;
+    color: var(--text-primary) !important;
+  }
+
+  .theme-dark .btn-secondary:hover {
+    background-color: var(--bg-secondary) !important;
+  }
+
+  /* Reglas específicas para tarjetas del dashboard */
+  .theme-dark .bg-gradient-to-r,
+  .theme-dark .bg-gradient-to-br {
+    background: var(--bg-card) !important;
+  }
+
+  /* Forzar colores en elementos específicos del dashboard */
+  .theme-dark .bg-green-100,
+  .theme-dark .bg-red-100,
+  .theme-dark .bg-blue-100,
+  .theme-dark .bg-yellow-100,
+  .theme-dark .bg-purple-100,
+  .theme-dark .bg-pink-100 {
+    background-color: var(--bg-card) !important;
+  }
+
+  /* Forzar colores de texto en elementos específicos */
+  .theme-dark .text-green-700,
+  .theme-dark .text-red-700,
+  .theme-dark .text-blue-700,
+  .theme-dark .text-yellow-700,
+  .theme-dark .text-purple-700,
+  .theme-dark .text-pink-700 {
+    color: var(--text-primary) !important;
+  }
+
+  /* Forzar colores de texto en elementos específicos del dashboard */
+  .theme-dark .text-green-600,
+  .theme-dark .text-red-600,
+  .theme-dark .text-blue-600,
+  .theme-dark .text-yellow-600,
+  .theme-dark .text-purple-600,
+  .theme-dark .text-pink-600 {
+    color: var(--text-primary) !important;
+  }
+} 
