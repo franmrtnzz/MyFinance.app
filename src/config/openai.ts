@@ -1,4 +1,4 @@
-export const OPENAI_API_KEY = import.meta.env.VITE_OPENAI_API_KEY || "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";
+export const OPENAI_API_KEY = import.meta.env.VITE_OPENAI_API_KEY;
 
 export const OPENAI_CONFIG = {
   apiKey: OPENAI_API_KEY,
