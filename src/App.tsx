@@ -3,7 +3,7 @@ import { LocalDataProvider } from './contexts/LocalDataContext';
 import { FirebaseProvider } from './contexts/FirebaseContext';
 import { UserSettingsProvider } from './contexts/UserSettingsContext';
 import Navigation from './components/Navigation';
-import SyncStatus from './components/SyncStatus';
+
 import Dashboard from './pages/Dashboard';
 import Transactions from './pages/Transactions';
 import Portfolio from './pages/Portfolio';
@@ -27,7 +27,7 @@ function App() {
                   <Route path="/settings" element={<Settings />} />
                 </Routes>
               </main>
-              <SyncStatus />
+
             </div>
           </Router>
         </LocalDataProvider>
